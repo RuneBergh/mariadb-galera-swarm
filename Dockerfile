@@ -23,7 +23,8 @@ RUN chown -R mysql:mysql /etc/mysql && chmod -R go-w /etc/mysql
 
 EXPOSE 3306 4444 4567 4567/udp 4568 8080 8081
 
-HEALTHCHECK CMD /usr/local/bin/healthcheck.sh
+HEALTHCHECK --timeout=60s  CMD /usr/local/bin/healthcheck.sh
+
 
 ENV SST_METHOD=xtrabackup-v2
 
